@@ -1,0 +1,17 @@
+<vector android:height="24dp" android:viewportHeight="512"
+    android:viewportWidth="512" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FF553B" android:pathData="m357,171h80v30h-80zM357,171"/>
+    <path android:fillColor="#FF553B" android:pathData="m199.656,302.207 l-27.313,-12.414 53.996,-118.793h70.66v30h-51.34zM199.656,302.207"/>
+    <path android:fillColor="#FF553B" android:pathData="m75,311h362v30h-362zM75,311"/>
+    <path android:fillColor="#B62812" android:pathData="m75,326h362v15h-362zM75,326"/>
+    <path android:fillColor="#faf00c" android:pathData="m45,371c-24.813,0 -45,-20.188 -45,-45s20.188,-45 45,-45 45,20.188 45,45 -20.188,45 -45,45zM45,371"/>
+    <path android:fillColor="#faf00c" android:pathData="m326,371c-24.813,0 -45,-20.188 -45,-45s20.188,-45 45,-45 45,20.188 45,45 -20.188,45 -45,45zM326,371"/>
+    <path android:fillColor="#faf00c" android:pathData="m467,371c-24.813,0 -45,-20.188 -45,-45s20.188,-45 45,-45 45,20.188 45,45 -20.188,45 -45,45zM467,371"/>
+    <path android:fillColor="#D27A84" android:pathData="m186,371c-24.813,0 -45,-20.188 -45,-45s20.188,-45 45,-45 45,20.188 45,45 -20.188,45 -45,45zM186,371"/>
+    <path android:fillColor="#faf00c" android:pathData="m467,231c-24.813,0 -45,-20.188 -45,-45s20.188,-45 45,-45 45,20.188 45,45 -20.188,45 -45,45zM467,231"/>
+    <path android:fillColor="#faf00c" android:pathData="m327,231c-24.813,0 -45,-20.188 -45,-45s20.188,-45 45,-45 45,20.188 45,45 -20.188,45 -45,45zM327,231"/>
+    <path android:fillColor="#A45E75" android:pathData="m186,371c24.813,0 45,-20.188 45,-45h-90c0,24.813 20.188,45 45,45zM186,371"/>
+    <path android:fillColor="#CAC70C" android:pathData="m45,371c24.813,0 45,-20.188 45,-45h-90c0,24.813 20.188,45 45,45zM45,371"/>
+    <path android:fillColor="#CAC70C" android:pathData="m326,371c24.813,0 45,-20.188 45,-45h-90c0,24.813 20.188,45 45,45zM326,371"/>
+    <path android:fillColor="#CAC70C" android:pathData="m467,371c24.813,0 45,-20.188 45,-45h-90c0,24.813 20.188,45 45,45zM467,371"/>
+</vector>

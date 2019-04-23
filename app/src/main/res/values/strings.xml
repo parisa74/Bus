@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">اتوبوس</string>
+    <string name="no_location_data_provided">سیستم مکان یاب </string>
+    <string name="service_not_available">Sorry, the service is not available</string>
+    <string name="invalid_lat_long_used">Invalid latitude or longitude used</string>
+    <string name="no_address_found">Sorry, no address found</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="Enterdest">مقصد خود را انتخاب کنید...!</string>
+    <string name="arrive">هروقت سوار شدی دکمه رو بزن </string>
+    <string name="choosetaxi">انتخاب  </string>
+    <string name="chooselocation">به کجا چنین شتابان ؟</string>
+    <string name="start">بیخیال</string>
+    <string name="next">بعدی</string>
+    <string name="slide1_1">یافتن موقعیت</string>
+    <string name="slide1_2">موقعیتت که پیدا شد ، خطوط اطرافت رو ببین.</string>
+    <string name="slide2_2">خط ها و ایستگاه هاشون رو نگاه کن و خط خودت رو انتخاب کن.</string>
+    <string name="slide2_1">انتخاب خط</string>
+    <string name="slide3_1">مشاهده اتوبوس</string>
+    <string name="slide3_2">اتوبوس که نزدیک ایستگاه شد باخبرت می کنیم.</string>
+    <string name="slide4_1">پرداخت کرایه</string>
+    <string name="slide4_2">کدراننده رو اسکن کن و کرایه رو پرداخت کن.</string>
+
+</resources>
