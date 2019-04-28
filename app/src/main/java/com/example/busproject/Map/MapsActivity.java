@@ -83,8 +83,8 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+//import com.google.android.gms.location.places.Place;
+//import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -101,6 +101,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.warkiz.widget.IndicatorSeekBar;
+import com.warkiz.widget.OnSeekChangeListener;
+import com.warkiz.widget.SeekParams;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -176,7 +179,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     int alarmDist = 100;
     TextView txtDistance;
-    CardView search_layout, seekbar_layout;
+    CardView search_layout;
+    LinearLayout  seekbar_layout;
     public static int location_int = 1;
     private int location_time = 0;
 
@@ -265,37 +269,43 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         search_layout = findViewById(R.id.crd_search);
 
 
-//        IndicatorSeekBar seekBar = findViewById(R.id.seek_bar);
-//        seekBar.setOnSeekChangeListener(new OnSeekChangeListener() {
-//
-//            @Override
-//            public void onSeeking(SeekParams seekParams) {
-//                Log.d(TAG, "onSeeking: " + seekParams.progress);
-//                drawCircle(seekParams.progress);
+        seekbar_layout = findViewById(R.id.crd_seekbar);
+
+
+        final IndicatorSeekBar seekBar = findViewById(R.id.seek_bar);
+
+
+        seekBar.setOnSeekChangeListener(new OnSeekChangeListener() {
+
+            @Override
+            public void onSeeking(SeekParams seekParams) {
+                Log.d(TAG, "onSeeking: " + seekParams.progress);
+                drawCircle(seekParams.progress);
+                alarmDist=seekParams.progress;
 //                SharedPreferences.Editor SP;
 //                SP = PreferenceManager.getDefaultSharedPreferences(AppController.getAppContext()).edit();
 //
 //                SP.putString("alarm_len", String.valueOf(seekParams.progress * 1000));
 //                SP.apply();
-////todo should get from server
-//                // getNearestTaxis(seekParams.progress*1000);
-//
-//                if (seekParams.progress == 2) {
-//
-//
-//                } else if (seekParams.progress == 4) {
-//
-//                } else if (seekParams.progress == 6){
-//
-//                }
-//                else if (seekParams.progress==8){
-//
-//                }
-//                else if (seekParams.progress==10){
-//
-//                }
-//
-//
+//todo should get from server
+                // getNearestTaxis(seekParams.progress*1000);
+
+                if (seekParams.progress == 2) {
+
+
+                } else if (seekParams.progress == 4) {
+
+                } else if (seekParams.progress == 6){
+
+                }
+                else if (seekParams.progress==8){
+
+                }
+                else if (seekParams.progress==10){
+
+                }
+
+
 //                    List<Taxi> taxis = new ArrayList<>();
 //                MarkerOptions markerOptions = new MarkerOptions();
 //
@@ -309,24 +319,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //
 //                MarkerWindowInfoAdapter markerInfoWindowAdapter = new MarkerWindowInfoAdapter(AppController.getAppContext(), taxis);
 //                mMap.setInfoWindowAdapter(markerInfoWindowAdapter);
-//
-//
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(IndicatorSeekBar seekBar) {
-//                LatLng homeLoc = new LatLng(mCenterLatLong.latitude, mCenterLatLong.longitude);
-//                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(homeLoc, 12));
-//
-//
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(IndicatorSeekBar seekBar) {
-//            }
-//        });
+////
 
-        //
+            }
+
+            @Override
+            public void onStartTrackingTouch(IndicatorSeekBar seekBar) {
+                LatLng homeLoc = new LatLng(mCenterLatLong.latitude, mCenterLatLong.longitude);
+                // mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(homeLoc, 12));
+
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(IndicatorSeekBar seekBar) {
+            }
+        });
+
+
+
+
         //   seekBar.getIndicator().setContentView(R.layout.indic);
 
         currentlocation = findViewById(R.id.currentlocation);
@@ -459,7 +471,7 @@ try {
             @Override
             public void onClick(View view) {
 
-                openAutocompleteActivity();
+           //     openAutocompleteActivity();
 
             }
 
@@ -863,28 +875,28 @@ try {
         startService(intent);
     }
 
-
-    private void openAutocompleteActivity() {
-        try {
-            // The autocomplete activity requires Google Play Services to be available. The intent
-            // builder checks this and throws an exception if it is not the case.
-            Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN)
-                    .build(this);
-            startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE);
-        } catch (GooglePlayServicesRepairableException e) {
-            // Indicates that Google Play Services is either not installed or not up to date. Prompt
-            // the user to correct the issue.
-            GoogleApiAvailability.getInstance().getErrorDialog(this, e.getConnectionStatusCode(),
-                    0 /* requestCode */).show();
-        } catch (GooglePlayServicesNotAvailableException e) {
-            // Indicates that Google Play Services is not available and the problem is not easily
-            // resolvable.
-            String message = "Google Play Services is not available: " +
-                    GoogleApiAvailability.getInstance().getErrorString(e.errorCode);
-
-            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
-        }
-    }
+//
+//    private void openAutocompleteActivity() {
+//        try {
+//            // The autocomplete activity requires Google Play Services to be available. The intent
+//            // builder checks this and throws an exception if it is not the case.
+//            Intent intent = new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN)
+//                    .build(this);
+//            startActivityForResult(intent, REQUEST_CODE_AUTOCOMPLETE);
+//        } catch (GooglePlayServicesRepairableException e) {
+//            // Indicates that Google Play Services is either not installed or not up to date. Prompt
+//            // the user to correct the issue.
+//            GoogleApiAvailability.getInstance().getErrorDialog(this, e.getConnectionStatusCode(),
+//                    0 /* requestCode */).show();
+//        } catch (GooglePlayServicesNotAvailableException e) {
+//            // Indicates that Google Play Services is not available and the problem is not easily
+//            // resolvable.
+//            String message = "Google Play Services is not available: " +
+//                    GoogleApiAvailability.getInstance().getErrorString(e.errorCode);
+//
+//            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
     /**
      * Called after the autocomplete activity has finished to return its result.
@@ -897,7 +909,7 @@ try {
         if (requestCode == REQUEST_CODE_AUTOCOMPLETE) {
             if (resultCode == RESULT_OK) {
                 // Get the user's selected place from the Intent.
-                Place place = PlaceAutocomplete.getPlace(mContext, data);
+                //Place place = PlaceAutocomplete.getPlace(mContext, data);
 
                 // TODO call location based filter
 
@@ -905,12 +917,12 @@ try {
                 LatLng latLong;
 
 
-                latLong = place.getLatLng();
+               // latLong = place.getLatLng();
 
                 //mLocationText.setText(place.getName() + "");
 
-                CameraPosition cameraPosition = new CameraPosition.Builder()
-                        .target(latLong).zoom(19).build();
+//                CameraPosition cameraPosition = new CameraPosition.Builder()
+//                        .target(latLong).zoom(19).build();
 
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
@@ -923,18 +935,18 @@ try {
                     return;
                 }
                 mMap.setMyLocationEnabled(true);
-                mMap.animateCamera(CameraUpdateFactory
-                        .newCameraPosition(cameraPosition));
+//                mMap.animateCamera(CameraUpdateFactory
+//                        .newCameraPosition(cameraPosition));
 
 
             }
 
 
-        } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
-            Status status = PlaceAutocomplete.getStatus(mContext, data);
-        } else if (resultCode == RESULT_CANCELED) {
-            // Indicates that the activity closed before a selection was made. For example if
-            // the user pressed the back button.
+//        } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
+//            Status status = PlaceAutocomplete.getStatus(mContext, data);
+//        } else if (resultCode == RESULT_CANCELED) {
+//            // Indicates that the activity closed before a selection was made. For example if
+//            // the user pressed the back button.
         }
     }
 
@@ -1316,17 +1328,19 @@ try {
     public void drawCircle(int progress) {
 
         // mMap.clear();
-        CircleOptions circleOptions = new CircleOptions().center(new LatLng(getMyLocation().getLatitude(), getMyLocation().getLongitude()))
-                .radius(progress)
-                .strokeColor(R.color.material_blue)
-                .fillColor(R.color.material_blue)
-                .strokeWidth(1);
-        if (myCircle != null) {
-            myCircle.remove();
-        }
-        myCircle = mMap.addCircle(circleOptions);
+       try {
+           CircleOptions circleOptions = new CircleOptions().center(new LatLng(getMyLocation().getLatitude(), getMyLocation().getLongitude()))
+                   .radius(progress)
+                   .strokeColor(R.color.material_blue)
+                   .fillColor(R.color.material_blue)
+                   .strokeWidth(1);
 
+           if (myCircle != null) {
+               myCircle.remove();
+           }
+           myCircle = mMap.addCircle(circleOptions);
 
+       }catch (Exception e){}
     }
 
 
